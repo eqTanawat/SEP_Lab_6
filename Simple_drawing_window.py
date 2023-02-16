@@ -30,6 +30,24 @@ class Simple_drawing_window(QWidget):
 
         p.drawPixmap(QRect(200,100,320,320), self.rabbit)
         p.end()
+  
+class Simple_drawing_window2(QWidget):
+    def __init__(self):
+        QWidget.__init__(self, None)
+        self.setWindowTitle("Simple Drawing")
+        self.rabbit = QPixmap("images/rabbit.png")
+
+    def paintEvent(self, e):
+        p = QPainter()
+        p.begin(self)
+
+        p.setPen(QColor(150,0,90))
+        p.setBrush(QColor(150,0,90))
+        p.drawPie(50,150,100,100,0,180*16)
+        p.drawPie(150,150,100,100,0,180*16)
+        p.drawPolygon([QPoint(50,200), QPoint(250,200), QPoint(150,325),])
+        
+        p.end()
 
 def main():
     app = QApplication(sys.argv)
