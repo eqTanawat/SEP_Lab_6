@@ -30,6 +30,32 @@ class Simple_drawing_window(QWidget):
 
         p.drawPixmap(QRect(200,100,320,320), self.rabbit)
         p.end()
+
+import sys
+from PySide6.QtCore import *
+from PySide6.QtWidgets import *
+from PySide6.QtGui import *
+
+class Simple_drawing_window1(QWidget):
+    def __init__(self):
+        QWidget.__init__(self,None)
+        self.setWindowTitle("Simple GitHub Drawing - 1")
+
+    def paintEvent(self, e):
+        p = QPainter()
+        p.begin(self)
+
+        p.setPen(QColor(0,0,0))
+        p.setBrush(QColor(255,255,0))
+        p.drawPolygon([
+            QPoint(350,350), QPoint(300,300),
+            QPoint(250,350), QPoint(275,280),
+            QPoint(225,250), QPoint(275,250),
+            QPoint(300,200), QPoint(325,250),
+            QPoint(375,250), QPoint(325,280),
+        ])
+
+        p.end()
   
 class Simple_drawing_window2(QWidget):
     def __init__(self):
