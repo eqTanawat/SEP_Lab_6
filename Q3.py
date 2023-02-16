@@ -11,7 +11,8 @@ class Disk(object):
 
     # def showdisk(self):
 
-    # def newpos(self,xpos,ypos):
+    def newpos(self,xpos,ypos):
+        goto(self.dxpos,self.dypos)
 
     # def cleardisk(self):
 
