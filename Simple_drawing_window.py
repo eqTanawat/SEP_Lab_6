@@ -31,11 +31,6 @@ class Simple_drawing_window(QWidget):
         p.drawPixmap(QRect(200,100,320,320), self.rabbit)
         p.end()
 
-import sys
-from PySide6.QtCore import *
-from PySide6.QtWidgets import *
-from PySide6.QtGui import *
-
 class Simple_drawing_window1(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
@@ -60,8 +55,7 @@ class Simple_drawing_window1(QWidget):
 class Simple_drawing_window2(QWidget):
     def __init__(self):
         QWidget.__init__(self, None)
-        self.setWindowTitle("Simple Drawing")
-        self.rabbit = QPixmap("images/rabbit.png")
+        self.setWindowTitle("Simple GitHub Drawing - 2")
 
     def paintEvent(self, e):
         p = QPainter()
@@ -78,7 +72,7 @@ class Simple_drawing_window2(QWidget):
 class Simple_drawing_window_3(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
-        self.setWindowTitle("Simple GitHub Drawing")
+        self.setWindowTitle("Simple GitHub Drawing - 3")
         self.rabbit = QPixmap("images/rabbit.png")
 
     def paintEvent(self, e):
@@ -106,8 +100,12 @@ class Simple_drawing_window_3(QWidget):
 def main():
     app = QApplication(sys.argv)
 
-    w = Simple_drawing_window()
-    w.show()
+    w1 = Simple_drawing_window()
+    w1.show()
+    w2 = Simple_drawing_window()
+    w2.show()
+    w3 = Simple_drawing_window()
+    w3.show()
 
     return app.exec()
 
