@@ -37,7 +37,8 @@ class Drawing_area(QMainWindow):
         self.last_y = None
 
     def clear(self):
-        print("test")
+        self.canvas.fill(Qt.GlobalColor.white)
+        self.label.setPixmap(self.canvas)
 
 class main_window(QWidget):
     def __init__(self):
@@ -47,6 +48,11 @@ class main_window(QWidget):
 
         layout = QVBoxLayout()
         layout.addWidget(self.Drawing_area)
+
+        label = QLabel(self)
+        label.setText("Drag the mouse to draw")
+        label.setAlignment(Qt.AlignCenter)
+        layout.addWidget(label)
 
         clear_button = QPushButton('Clear', self)
         clear_button.clicked.connect(self.Drawing_area.clear)
