@@ -40,6 +40,7 @@ class Pole(object):
         self.stack = []
         self.toppos = 0
         self.pxpos = xpos
+        self.pypos = ypos
         self.pthick = thick
         self.plength = length
 
