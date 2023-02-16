@@ -69,7 +69,7 @@ class Simple_drawing_window2(QWidget):
         
         p.end()
         
-class Simple_drawing_window_3(QWidget):
+class Simple_drawing_window3(QWidget):
     def __init__(self):
         QWidget.__init__(self,None)
         self.setWindowTitle("Simple GitHub Drawing - 3")
@@ -100,11 +100,11 @@ class Simple_drawing_window_3(QWidget):
 def main():
     app = QApplication(sys.argv)
 
-    w1 = Simple_drawing_window()
+    w1 = Simple_drawing_window1()
     w1.show()
-    w2 = Simple_drawing_window()
+    w2 = Simple_drawing_window2()
     w2.show()
-    w3 = Simple_drawing_window()
+    w3 = Simple_drawing_window3()
     w3.show()
 
     return app.exec()
