@@ -3,12 +3,13 @@ from PySide6.QtCore import *
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 
-class Simple_paint_program(QWidget):
-   def __init__(self):
+class Drawing_area(QMainWindow):
+
+    def __init__(self):
         super().__init__()
 
-        self.label = QtWidgets.QLabel()
-        canvas = QtGui.QPixmap(400, 300)
+        self.label = QLabel()
+        canvas = QPixmap(400, 300)
         canvas.fill(Qt.GlobalColor.white)
         self.label.setPixmap(canvas)
         self.setCentralWidget(self.label)
@@ -22,7 +23,7 @@ class Simple_paint_program(QWidget):
             return # Ignore the first time.
 
         canvas = self.label.pixmap()
-        painter = QtGui.QPainter(canvas)
+        painter = QPainter(canvas)
         painter.drawLine(self.last_x, self.last_y, e.position().x(), e.position().y())
         painter.end()
         self.label.setPixmap(canvas)
@@ -38,12 +39,10 @@ class Simple_paint_program(QWidget):
 def main():
     app = QApplication(sys.argv)
 
-    w = Simple_paint_program()
+    w=Drawing_area()
     w.show()
-    
+
     return app.exec()
 
-if __name__ == '__main__':
-    
-
+if __name__ == "__main__":
     sys.exit(main())
