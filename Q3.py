@@ -26,11 +26,34 @@ class Pole(object):
         self.pthick = thick
         self.plength = length
 
-    # def showpole(self):
+    def showpole(self):
+        turtle.penup()
+        turtle.goto(self.pxpos, self.pypos)
+        turtle.pendown()
 
-    # def pushdisk(self):
+        turtle.forward(self.pthick/2)
+        turtle.left(90)
+        turtle.forward(self.plength)
+        turtle.left(90)
+        turtle.forward(self.pthick)
+        turtle.left(90)
+        turtle.forward(self.plength)
+        turtle.left(90)
+        turtle.forward(self.pthick/2)
 
-    # def popdisk(self):
+    def pushdisk(self, disk):
+        disk.newpos(self.pxpos, self.toppos)
+        disk.showdisk()
+
+        self.toppos += disk.dheight
+        self.stack.append(disk)
+
+    def popdisk(self):
+        outputdisk = self.stack.pop()
+        self.toppos -= outputdisk.dheight
+
+        outputdisk.newpos(self.pxpos, self.toppos)
+        outputdisk.cleardisk()
 
 class Hanoi(object):
     def __int__(self,n=3,start="A",workspace ="B", destination="C"):
