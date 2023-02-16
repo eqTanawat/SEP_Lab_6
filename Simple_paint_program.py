@@ -36,10 +36,29 @@ class Drawing_area(QMainWindow):
         self.last_x = None
         self.last_y = None
 
+    def clear(self):
+        print("test")
+
+class main_window(QWidget):
+    def __init__(self):
+        QWidget.__init__(self, None)
+
+        self.Drawing_area = Drawing_area()
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.Drawing_area)
+
+        clear_button = QPushButton('Clear', self)
+        clear_button.clicked.connect(self.Drawing_area.clear)
+        layout.addWidget(clear_button)
+
+        self.setLayout(layout)
+        self.setMinimumSize(400,400)
+
 def main():
     app = QApplication(sys.argv)
 
-    w=Drawing_area()
+    w=main_window()
     w.show()
 
     return app.exec()
